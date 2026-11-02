@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Training Center · Administration
+    </title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js" defer>
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          tc.
+        </span>
+        <div>
+          Training Center
+          <small>
+            Learning, organized.
+          </small>
+        </div>
+      </div>
+      <span class="workspace">
+        Administration workspace
+      </span>
+    </header>
+    <main>
+      <div class="intro">
+        <div>
+          <p class="eyebrow">
+            CENTER OPERATIONS
+          </p>
+          <h1>
+            A clear view of learning.
+          </h1>
+          <p>
+            Manage your students, courses, and their next steps.
+          </p>
+        </div>
+        <button id="refresh" class="secondary">
+          Refresh records
+        </button>
+      </div>
+      <div id="status" role="status" aria-live="polite">
+        Loading records…
+      </div>
+      <section class="stats" aria-label="Center totals">
+        <article>
+          <span>
+            Registered students
+          </span>
+          <strong id="student-count">
+            —
+          </strong>
+        </article>
+        <article>
+          <span>
+            Available courses
+          </span>
+          <strong id="course-count">
+            —
+          </strong>
+        </article>
+        <article>
+          <span>
+            Active enrollments
+          </span>
+          <strong id="enrollment-count">
+            —
+          </strong>
+        </article>
+      </section>
+      <div class="columns">
+        <section class="card" aria-labelledby="students-title">
+          <div class="section-heading">
+            <span class="step">
+              01
+            </span>
+            <h2 id="students-title">
+              Students
+            </h2>
+          </div>
+          <p class="muted">
+            Start with the people behind every course.
+          </p>
+          <form id="student-form">
+            <label for="student-name">
+              Full name
+            </label>
+            <input id="student-name" name="name" required maxlength="100" autocomplete="name" placeholder="e.g. Ahmed Mohamed">
+            <label for="student-email">
+              Email address
+            </label>
+            <input id="student-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="ahmed@example.com">
+            <button>
+              Add student
+            </button>
+          </form>
+          <div id="students" class="records">
+          </div>
+        </section>
+        <section class="card" aria-labelledby="courses-title">
+          <div class="section-heading">
+            <span class="step">
+              02
+            </span>
+            <h2 id="courses-title">
+              Courses
+            </h2>
+          </div>
+          <p class="muted">
+            Give every learning journey a destination.
+          </p>
+          <form id="course-form">
+            <label for="course-title">
+              Course title
+            </label>
+            <input id="course-title" name="title" required maxlength="150" placeholder="e.g. Database Fundamentals">
+            <label for="course-description">
+              Description
+              <span class="muted">
+                (optional)
+              </span>
+            </label>
+            <textarea id="course-description" name="description" maxlength="2000" rows="2" placeholder="What will students learn?">
+            </textarea>
+            <button>
+              Add course
+            </button>
+          </form>
+          <div id="courses" class="records">
+          </div>
+        </section>
+      </div>
+      <section class="card enrollment-card" aria-labelledby="enrollments-title">
+        <div class="section-heading">
+          <span class="step">
+            03
+          </span>
+          <h2 id="enrollments-title">
+            Enrollments & grades
+          </h2>
+        </div>
+        <p class="muted">
+          Connect students with courses and track their progress.
+        </p>
+        <form id="enrollment-form" class="enroll-form">
+          <div>
+            <label for="student-select">
+              Student
+            </label>
+            <select id="student-select" name="student_id" required>
+              <option value="">
+                Loading…
+              </option>
+            </select>
+          </div>
+          <div>
+            <label for="course-select">
+              Course
+            </label>
+            <select id="course-select" name="course_id" required>
+              <option value="">
+                Loading…
+              </option>
+            </select>
+          </div>
+          <button>
+            Enroll student
+          </button>
+        </form>
+        <div class="table-scroll">
+          <table>
+            <caption class="sr-only">
+              Enrollment records and editable grades
+            </caption>
+            <thead>
+              <tr>
+                <th>
+                  Student
+                </th>
+                <th>
+                  Course
+                </th>
+                <th>
+                  Grade / 100
+                </th>
+                <th>
+                  Enrolled
+                </th>
+                <th>
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody id="enrollments">
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <footer>
+        Full Stack Development
+        <span>
+          From Planning to Production Concepts
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>

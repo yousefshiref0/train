@@ -1,0 +1,13 @@
+{
+  "name": "training-center-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full Stack Development: From Planning to Production Concepts",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "seed": "node --env-file-if-exists=.env scripts/seed.js",
+    "test": "node --test"
+  },
+  "dependencies": { "better-sqlite3": "^12.9.0", "express": "^5.1.0" }
+}
